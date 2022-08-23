@@ -72,6 +72,7 @@
                   <label for="link_url" class="col-form-label">link url </label>
                   <input class="form-control" type="text" name="link_url" id="link_url" >
                </div>
+               <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4" >Submit</button>
                <a href="<?= admin_url(); ?>banner" class="btn btn-danger mt-4 ml-3">Cancel</a>
                </form>   
             </div>
