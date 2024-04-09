@@ -55,36 +55,29 @@
                            </tr>
                         </thead>
                         <tbody>
-                           <?php 
-                           if(!empty($Allbanner)){
-                              foreach($Allbanner as $value){ ?>
-                                 <tr>
-                                    <td><?php echo $value->title ?></td>
-                                    <td>
-                                       <?php if ($value->banner_image != (null || '')) : ?>
-                                       <img src="<?php echo base_url('uploads/banner/original/' . $value->banner_image); ?>" style="height: 79px; width: 104px;">
-                                       <?php else : ?>
-                                          <!-- <img src="<?php //echo base_url('uploads/banner/original/placeholder-image.jpg'); ?>" style="height: 79px; width: 104px;"> -->
-                                       <?php endif; ?>
-                                    </td>
-                                    <td><?php echo $value->link_url ?></td>
-                                    <td>
-                                       <a href="<?php echo admin_url(); ?>banner/update/<?php echo base64_encode($value->id); ?>">
-                                          <span class="glyphicon glyphicon-edit"></span>
-                                       </a>
-                                       <a href="<?php echo admin_url(); ?>banner/delete/<?php echo base64_encode($value->id); ?>">
-                                          <span class="glyphicon glyphicon-trash bannerdel_confirmation"></span>
-                                       </a>
-                                    </td>
-                                 
-                                 </tr>
-                           <?php   
-                           } }else{ ?>
-                           <tr><td colspan="4" style="text-align: center;">No data found.</td></tr>
-                           <?php
-                           }
-
-                           ?>
+                        <?php if(!empty($AllBanner)) {
+                            foreach($AllBanner as $value) { ?>
+                           <tr>
+                            <td><?php echo $value->title; ?></td>
+                            <td>
+                                 <?php if ($value->banner_image != (null || '')) : ?>
+                                 <img src="<?php echo base_url('uploads/banner/original/'. $value->banner_image); ?>" style="height: 79px; width: 104px;">
+                                 <?php else : ?>
+                                 <?php endif; ?>
+                              </td>
+                            <td><?php echo $value->link_url ?></td>
+                            <td>
+                                 <a href="<?php echo admin_url(); ?>banner/update/<?php echo base64_encode($value->id); ?>">
+                                    <span class="glyphicon glyphicon-edit"></span>
+                                 </a>
+                                 <a href="<?php echo admin_url(); ?>banner/delete/<?php echo base64_encode($value->id); ?>">
+                                    <span class="glyphicon glyphicon-trash bannerdel_confirmation"></span>
+                                 </a>
+                              </td>
+                           </tr>
+                           <?php } } else { ?>
+                            <tr><td colspan="4" style="text-align: center;">No data found.</td></tr>
+                            <?php } ?>
                         </tbody>
                      </table>
                      <?php echo $this->pagination->create_links(); ?>
@@ -96,5 +89,4 @@
    </div>
 </div>
 </div>
-
 <?php $this->load->view('admin/include/footer'); ?>

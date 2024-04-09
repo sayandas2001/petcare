@@ -1,32 +1,51 @@
-<?php
+<?php if(!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Banner_model extends CI_Model{
-    function __construct() 
-	{
-		parent::__construct();
-		//$this->load->database();		
-	}
-
-    public function num_rows()
+class banner_model extends CI_Model
+{
+    public function banner_listing()
     {
-        $this->db->select('banner.*');
+        $this->db->select('*');
         $this->db->from('banner');
-        $this->db->where('banner.is_active!=','0');
-        $this->db->order_by("banner.id","desc");
-        $result=$this->db->get();
-        return $result->num_rows();
+        $query = $this->db->get();
+        $result = $query->result();
+        return $result;
     }
 
-    public function GetBannerData($limit,$offset){
-        $this->db->select('banner.*');
-        $this->db->from('banner');
-        $this->db->where('banner.is_active!=','0');
-        $this->db->order_by("banner.id","desc");
-        $this->db->limit($limit,$offset);
-        $result=$this->db->get();
-        return $result->result();
+    public function banner_add($data)
+    {
+        if($this->db->insert('banner',$data))
+        {
+            return $this->db->insert_id();
+        }
+        else
+        {
+            return false;
+        }
     }
-    
+
+    public function getbannerInfoById($banner_id)
+    {
+        $this->db->select('*');
+        $this->db->from('banner');
+        $this->db->where('banner_id', $banner_id);
+        $query= $this->db->get();
+        return $query->row();
+    }
+
+    public function editbanner($bannerInfo, $banner_id)
+    {
+        $this->db->where('banner_id', $banner_id);
+        $this->db->update('banner', $bannerInfo);
+        
+        return TRUE;
+    }
+
+    public function delete($banner_id)
+    {
+        $this->db->where('banner_id', $banner_id);
+        $this->db->delete("banner");
+        return true;             
+    }
+
 }
-
-?>
+?>    

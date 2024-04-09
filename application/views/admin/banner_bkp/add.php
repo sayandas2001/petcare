@@ -52,29 +52,29 @@
                <h4 class="header-title">Create New Banner
                   <a href="<?= admin_url(); ?>banner" class="btn btn-danger float-right">Back</a>
                </h4>
-               <?php
-               echo form_open_multipart(admin_url().'banner/add', array('method'=>'post','name'=>'form1', 'id'=>'form1','class'=>'form-frame', 'autocomplete'=>"off"));
-               ?>
-                  <div class="form-group">
-                  <label for="title" class="col-form-label"> title </label>
+               <?php 
+                  echo form_open_multipart(admin_url().'banner/add', array('method'=>'post','name'=>'form1', 'id'=>'form1','class'=>'form-frame', 'autocomplete'=>"off"));
+                  ?>
+               <div class="form-group">
+                  <label for="title" class="col-form-label">Banner Title </label>
                   <input class="form-control" type="text" name="title" id="title" >
                </div>
                <div class="form-group">
-                  <label for="banner_image" class="col-form-label">banner image </label>
+                  <label for="banner_image" class="col-form-label">Banner Image </label>
                   <input class="form-control" type="file" name="banner_image" id="banner_image" >
                </div>
                <div class="form-group">
-                  <label for="short_desc" class="col-form-label">Short desc </label>
+                  <label for="short_desc" class="col-form-label">Short Description </label>
                   <input class="form-control" type="text" name="short_desc" id="short_desc" >
-                  
+                  <!-- <textarea id="short_desc" name="short_desc" rows="4" cols="50"></textarea> -->
                </div>
                <div class="form-group">
-                  <label for="link_url" class="col-form-label">link url </label>
+                  <label for="link_url" class="col-form-label">URL </label>
                   <input class="form-control" type="text" name="link_url" id="link_url" >
                </div>
                <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4" >Submit</button>
                <a href="<?= admin_url(); ?>banner" class="btn btn-danger mt-4 ml-3">Cancel</a>
-               </form>   
+               </form>
             </div>
          </div>
       </div>
