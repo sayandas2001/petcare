@@ -36,6 +36,12 @@
 					<li <?php if($nav_controller_name=="connection"){ ?>class="active"<?php } ?>>
 						<a href="<?php echo admin_url(); ?>connection/fixed_connection/1"><i class="ti-receipt"></i> <span>connection </span></a>
 					</li>
+					<li <?php if($nav_controller_name=="price"){ ?>class="active"<?php } ?>>
+						<a href="<?php echo admin_url(); ?>price"><i class="ti-receipt"></i> <span>price </span></a>
+					</li>
+					<li <?php if($nav_controller_name=="booking"){ ?>class="active"<?php } ?>>
+						<a href="<?php echo admin_url(); ?>booking"><i class="ti-receipt"></i> <span>booking </span></a>
+					</li>
 	
 				</ul>
 			</nav>

@@ -1,7 +1,7 @@
 
 <footer>
 	<div class="footer-area">
-		<p>© Copyright 2022. Iscon.</p>
+		<!-- <p>© Copyright 2022. Iscon.</p> -->
 	</div>
 </footer>
 

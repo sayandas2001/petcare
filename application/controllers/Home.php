@@ -3,12 +3,14 @@ class Home extends CI_Controller{
 
     function __construct(){
         parent::__construct(); 
-        $this->load->model('banner_model'); 
-        $this->load->model('about_model');
-        $this->load->model('service_model');
-        $this->load->model('blog_model');
-        $this->load->model('assistance_model'); 
-        $this->load->model('contact_model'); 
+        $this->load->model('Banner_model'); 
+        $this->load->model('About_model');
+        $this->load->model('Service_model');
+        $this->load->model('Blog_model');
+        $this->load->model('Assistance_model'); 
+        $this->load->model('Contact_model');
+        $this->load->model('Price_model'); 
+        $this->load->model('Booking_model'); 
         $this->upload_path_about = UPLOAD_PATH.'about/';
         $this->upload_path_banner = UPLOAD_PATH.'banner/';
         $this->upload_path_service = UPLOAD_PATH.'service/';
@@ -20,15 +22,17 @@ class Home extends CI_Controller{
     
     public function index()
     {
-        $data['allbanner'] = $this->banner_model->banner_listing();
-        $data['aboutInfo'] = $this->about_model->getaboutInfoALL();
-        $data['allservice'] = $this->service_model->getservice();
-        $data['allblog'] = $this->blog_model->getblog();
-        $data['allcare'] = $this->assistance_model->getassistance();
-        $data['contactinfo'] = $this->contact_model-> getcontactInfoALL();
-
-        //echo "<pre>"; print_r($data['contactinfo']); die;
+        $data['allbanner'] = $this->Banner_model->banner_listing();
+        $data['aboutInfo'] = $this->About_model->getaboutInfoALL();
+        $data['allservice'] = $this->Service_model->getservice();
+        $data['allblog'] = $this->Blog_model->getblog();
+        $data['allcare'] = $this->Assistance_model->getassistance();
+        $data['contactinfo'] = $this->Contact_model->getcontactInfoALL();
+        $data['allcost'] = $this->Price_model->getcost();
+        $data['allbook'] = $this->Booking_model->getbook();
+        //echo "<pre>"; print_r($data['allbook']); die;
         $this->load->view('front/index', $data);
     }
+    
 }
 ?>
